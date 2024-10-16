@@ -19,4 +19,23 @@ def blink(pin=5):
         GPIO.cleanup()
     return
 
-blink()
+def read_LDR(pin=17)
+    # Set up GPIO using BCM numbering
+    GPIO.setmode(GPIO.BCM)
+
+    # Set up GPIO pin 17 (signal pin) as input
+    GPIO.setup(pin, GPIO.IN)
+
+    try:
+        while True:
+            ldr_value = GPIO.input(pin)  # Read the digital signal from the LDR
+            if ldr_value == GPIO.HIGH:
+                print("LDR detects high light levels")
+            else:
+                print("LDR detects low light levels")
+            time.sleep(0.3)  # Read every second
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+    return
+
+read_LDR()
